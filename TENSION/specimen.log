@@ -1,0 +1,23 @@
+(02/13/1980 13:23:25) Information [MPT Runtime] "Procedure Beginning: TRACCION.000"
+(02/13/1980 13:23:25) Information [MPT Runtime] "Running"
+(02/13/1980 13:23:31) Warning [Stmgr] "Program Interlock (J29)."
+(02/13/1980 13:23:31) Warning [Stmgr] "Program Interlock 1 -- External Hardware Interlock."
+(02/13/1980 13:23:31) Information [MPT Runtime] "Entering Stopped"
+(02/13/1980 13:23:31) Error [MPT Runtime] "Procedure Interlocked: Program interlock is set.
+ Running Time:  00:00:05 
+ Channel Counters:
+    Axial -          0  Cycles"
+(02/13/1980 13:23:31) Information [MPT Runtime] "Stopped
+ Running Time:  00:00:05 
+ Channel Counters:
+    Axial -          0  Cycles"
+(02/13/1980 13:24:13) Information [MPT Runtime] "Exiting Stopped"
+(02/13/1980 13:24:13) Information [MPT Runtime] "Running"
+(02/13/1980 13:24:15) Information [MPT/Operator Event] "Operator Event 'inicio tst' Occurred: ''"
+(02/13/1980 13:26:39) Information [MPT Runtime] "Entering Stopped"
+(02/13/1980 13:26:39) Information [MPT Runtime] "Stopped
+ Running Time:  00:02:31 
+ Channel Counters:
+    Axial -          0  Cycles"
+(02/13/1980 13:26:51) Warning [Stmgr] "Program Interlock (J29)."
+(02/13/1980 13:26:51) Warning [Stmgr] "Program Interlock 1 -- External Hardware Interlock."
