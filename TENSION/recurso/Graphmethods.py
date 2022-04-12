@@ -25,7 +25,7 @@ def GraphStressStrain(esfuerzos: list[float], deformaciones: list[float], value:
     """ Create a graph with the stresses and strains """
     maxStress = max(esfuerzos)
     strainMaxStress = deformaciones[esfuerzos.index(maxStress)]
-
+    
     esfuerzoFractura = esfuerzos[-1]
     deformacionFractura = deformaciones[-1]
     plt.plot(deformaciones, esfuerzos)

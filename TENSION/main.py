@@ -8,33 +8,33 @@ Created on Sun Feb 27 12:09:29 2022
 from matplotlib import pyplot as plt
 import math as mt
 import recurso.Graphmethods as gm
-archivo = open('./TENSION/specimen.dat')  # Open document   For reead
-# archivoDatos = open('./TENSION/Datos.txt', 'w')  # Open document   For write
-fuerzas, desplazamientos, tiempos, esfuerzos, deformaciones = [], [], [], [], []  # Declare empty lists for each data list
+dataFile = open('./TENSION/specimen.dat')  # Open document   For reead
+# dataFileDatos = open('./TENSION/Datos.txt', 'w')  # Open document   For write
+forces, displacements, times, stresses, strains = [], [], [], [], []  # Declare empty lists for each data list
 
 """ specimen information """
-diametro = 1/2  # in
+diameter = 1/2  # in
 l0 = 40  # cm
 
 """ Convert to SI """
-diametro *= (2.54/100)  # m
-area = mt.pi*(pow(diametro, 2))/4  # m^2
+diameter *= (2.54/100)  # m
+area = mt.pi*(pow(diameter, 2))/4  # m^2
 l0 *= 10  # mm
 
-for linea in archivo:
+for line in dataFile:
     try:
-        fuerza, desplazamiento, tiempo = linea.replace('\n', '').split("\t")
-        fuerzas.append(float(fuerza))
-        desplazamientos.append(float(desplazamiento))
-        tiempos.append(float(tiempo))
+        force, displacement, time = line.replace('\n', '').split("\t")
+        forces.append(float(force))  #KN
+        displacements.append(float(displacement)) #[mm]
+        times.append(float(time))   #s
         
-        esfuerzos.append(float(fuerza)/area)
-        deformaciones.append((float(desplazamiento))/l0)
+        stresses.append(float(force)/area) #[kPa]
+        strains.append((float(displacement))/l0) #[mm/mm]
     except:
         pass
 
 value = 100
-# gm.GraphForceDisplacement(fuerzas, desplazamientos)
-gm.GraphStressStrain(esfuerzos, deformaciones, value)
-archivo.close()
+# gm.GraphForceDisplacement(forces, desplazamientos)
+gm.GraphStressStrain(stresses, strains, value)
+dataFile.close()
 

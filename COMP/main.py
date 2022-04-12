@@ -10,39 +10,37 @@ from matplotlib import pyplot as plt
 import math as mt
 # import Graphs from folder /recursos/Graphs
 from recurso import GraphMethods as gr
-# sys.path.append(r'C:\Users\Daniel\Documents\GitHub\COMP\recursos\Graphs') 
 
-archivo = open("./COMP/specimen.dat")  # Open document where is the data
+dataFile = open("./COMP/specimen.dat")  # Open document where is the data
 
-fuerzas, desplazamientos, tiempos, esfuerzos, deformaciones = [
-    [], [], [], [], []]
+forces, displacements, times, stresses, strains = [ [], [], [], [], [] ]
 
 # specimen data
-diametro = 1  # in
+diameter = 1  # in
 l0 = 2  # in
 
 # Conversion
-diametro *= (2.54/100)  # m
-area = mt.pi*(pow(diametro, 2))/4  # m^2
+diameter *= (2.54/100)  # m
+area = mt.pi*(pow(diameter, 2))/4  # m^2
 l0 *= 25.4  # mm
 
-for linea in archivo:
+for line in dataFile:
     try:
-        fuerza, desplazamiento, tiempo = linea.replace('\n', '').split("\t")
-        fuerzas.append(float(fuerza)) #KN
-        desplazamientos.append(float(desplazamiento)) #mm
-        tiempos.append(float(tiempo))  #s
-        esfuerzos.append(float(fuerza)/area) #KPa
-        deformaciones.append((float(desplazamiento))/l0) #mm/mm
+        force, displacement, time = line.replace('\n', '').split("\t")
+        forces.append(float(force)) #KN
+        displacements.append(float(displacement)) #mm
+        times.append(float(time))  #s
+        stresses.append(float(force)/area) #KPa
+        strains.append((float(displacement))/l0) #mm/mm
     except:
         pass
 
-fuerzas = [-fuerza for fuerza in fuerzas]
-desplazamientos = [-desplazamiento for desplazamiento in desplazamientos]
-esfuerzos = [-esfuerzo for esfuerzo in esfuerzos]
-deformaciones = [-deformacion for deformacion in deformaciones]
+forces = [-force for force in forces]
+displacements = [-displacement for displacement in displacements]
+stresses = [-esfuerzo for esfuerzo in stresses]
+strains = [-deformacion for deformacion in strains]
 
 value = 150
-gr.GraphStressStrain(esfuerzos, deformaciones, value)
-# gr.GraphForceDisplacement(fuerzas, desplazamientos, value)
+gr.GraphStressStrain(stresses, strains, value)
+# gr.GraphForceDisplacement(forces, displacements, value)
 
